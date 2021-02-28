@@ -1,0 +1,4 @@
+name: UserManager
+version: 0.1
+author: Obey
+main: de.obey.traxfight.usermanager.UserManager

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TraxFight-Usermanager:jar">
+    <output-path>D:/API</output-path>
+    <root id="archive" name="TraxFight-Usermanager.jar">
+      <element id="module-output" name="TraxFight-Usermanager" />
+    </root>
+  </artifact>
+</component>
