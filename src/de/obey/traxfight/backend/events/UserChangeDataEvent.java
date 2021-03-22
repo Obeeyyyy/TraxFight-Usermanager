@@ -1,24 +1,24 @@
-package de.obey.traxfight.usermanager.events;
+package de.obey.traxfight.backend.events;
 
 /*
 
         (TraxFight-Usermanager)
   This Class was created by Obey
-        20.02.2021 | 04:57
+        12.03.2021 | 12:44
 
 */
 
-import de.obey.traxfight.usermanager.User;
+import de.obey.traxfight.backend.User;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class UserSaveDataEvent extends Event {
+public class UserChangeDataEvent extends Event {
 
     private static HandlerList handlers = new HandlerList();
 
     private User user;
 
-    public UserSaveDataEvent(User user){
+    public UserChangeDataEvent(User user){
         this.user = user;
     }
 

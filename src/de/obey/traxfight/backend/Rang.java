@@ -1,4 +1,4 @@
-package de.obey.traxfight.usermanager;
+package de.obey.traxfight.backend;
 
 /*
 

@@ -1,4 +1,4 @@
-package de.obey.traxfight.usermanager.events;
+package de.obey.traxfight.backend.events;
 
 /*
 
@@ -8,17 +8,17 @@ package de.obey.traxfight.usermanager.events;
 
 */
 
-import de.obey.traxfight.usermanager.User;
+import de.obey.traxfight.backend.User;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class UserLoadDataEvent extends Event {
+public class UserReloadDataEvent extends Event {
 
     private static HandlerList handlers = new HandlerList();
 
     private User user;
 
-    public UserLoadDataEvent(User user){
+    public UserReloadDataEvent(User user){
         this.user = user;
     }
 

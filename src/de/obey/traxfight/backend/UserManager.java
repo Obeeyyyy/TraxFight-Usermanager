@@ -1,4 +1,4 @@
-package de.obey.traxfight.usermanager;
+package de.obey.traxfight.backend;
 
 /* 
         <- Code by Obey ->
@@ -10,6 +10,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -18,7 +19,12 @@ public class UserManager {
 
     private Map<UUID, User> users = new HashMap<>();
 
-    public UserManager(){}
+    public UserManager(String dataFile){
+        final File file = new File(dataFile + "/UserFiles");
+
+        if(!file.exists())
+            file.mkdir();
+    }
 
     public void loadAllUsers() {
         if(Bukkit.getOnlinePlayers().size() == 0)

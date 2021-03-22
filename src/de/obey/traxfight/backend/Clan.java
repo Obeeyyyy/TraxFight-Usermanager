@@ -1,72 +1,48 @@
-package de.obey.traxfight.usermanager;
+package de.obey.traxfight.backend;
 
-/* 
-        <- Code by Obey ->
-         TraxFight-Usermanager
-         24.12.2020 | 19:59
+/*
+
+        (TraxFight-Usermanager)
+  This Class was created by Obey
+        25.02.2021 | 09:39
+
 */
 
-import de.obey.traxfight.usermanager.events.UserLoadDataEvent;
-import de.obey.traxfight.usermanager.events.UserReloadDataEvent;
-import de.obey.traxfight.usermanager.events.UserSaveDataEvent;
+import de.obey.traxfight.backend.events.ClanLoadDataEvent;
+import de.obey.traxfight.backend.events.ClanSaveDataEvent;
 import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.entity.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
-public class User {
+public class Clan {
 
     private final HashMap<String, Long> longs = new HashMap<>();
     private final HashMap<String, Integer> integers = new HashMap<>();
     private final HashMap<String, Double> doubles = new HashMap<>();
     private final HashMap<String, String> strings = new HashMap<>();
     private final HashMap<String, Boolean> bools = new HashMap<>();
+    private final Map<String, ArrayList> lists = new HashMap<>();
 
-    private Rang rang;
-    private Clan clan;
+    private ClanFile clanFile;
 
-    private Player player;
-    private OfflinePlayer offlinePlayer;
-
-    public User(OfflinePlayer player){
-        offlinePlayer = player;
-
+    public Clan(int clanid){
+        setInteger("clanid", clanid);
         loadData();
     }
 
-    public User(Player player) {
-        this.player = player;
-        offlinePlayer = player;
-    }
-
-    public void reloadData(Player player){
-        this.player = player;
-        offlinePlayer = player;
-
-        UserReloadDataEvent userReloadDataEvent = new UserReloadDataEvent(this);
-        Bukkit.getPluginManager().callEvent(userReloadDataEvent);
-    }
-
     public void loadData(){
-        UserLoadDataEvent userLoadDataEvent = new UserLoadDataEvent(this);
-        Bukkit.getPluginManager().callEvent(userLoadDataEvent);
+        ClanLoadDataEvent clanLoadDataEvent = new ClanLoadDataEvent(this);
+        Bukkit.getPluginManager().callEvent(clanLoadDataEvent);
     }
 
     public void saveData(){
-        UserSaveDataEvent userSaveDataEvent = new UserSaveDataEvent(this);
-        Bukkit.getPluginManager().callEvent(userSaveDataEvent);
+        ClanSaveDataEvent clanSaveDataEvent = new ClanSaveDataEvent(this);
+        Bukkit.getPluginManager().callEvent(clanSaveDataEvent);
     }
 
     // SETTER \\
-    public void setRang(Rang rang) {
-        this.rang = rang;
-    }
-
-    public void setClan(Clan clan) {
-        this.clan = clan;
-    }
-
     public void setLong(String what, long amount){
         longs.put(what, amount);
     }
@@ -81,6 +57,14 @@ public class User {
 
     public void setString(String what, String value){
         strings.put(what, value);
+    }
+
+    public void setList(String what, ArrayList list){
+        lists.put(what, list);
+    }
+
+    public void setClanFile(ClanFile clanFile){
+        this.clanFile = clanFile;
     }
 
     // ADDER \\
@@ -127,13 +111,6 @@ public class User {
 
 
     // GETTER \\
-    public Rang getRang() {
-        return rang;
-    }
-
-    public Clan getClan() {
-        return clan;
-    }
 
     public long getLong(String what){
         return longs.get(what);
@@ -155,11 +132,12 @@ public class User {
         return strings.get(what);
     }
 
-    public Player getPlayer() {
-        return player;
+    public ArrayList getList(String what){
+        return lists.get(what);
     }
 
-    public OfflinePlayer getOfflinePlayer() {
-        return offlinePlayer;
+    public ClanFile getClanFile(){
+        return clanFile;
     }
+
 }

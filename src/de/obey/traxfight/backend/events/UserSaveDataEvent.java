@@ -1,4 +1,4 @@
-package de.obey.traxfight.usermanager.events;
+package de.obey.traxfight.backend.events;
 
 /*
 
@@ -8,27 +8,26 @@ package de.obey.traxfight.usermanager.events;
 
 */
 
-import de.obey.traxfight.usermanager.Clan;
-import de.obey.traxfight.usermanager.User;
+import de.obey.traxfight.backend.User;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
-public class ClanSaveDataEvent extends Event {
+public class UserSaveDataEvent extends Event {
 
     private static HandlerList handlers = new HandlerList();
 
-    private Clan clan;
+    private User user;
 
-    public ClanSaveDataEvent(Clan clan){
-        this.clan = clan;
+    public UserSaveDataEvent(User user){
+        this.user = user;
     }
 
     public static HandlerList getHandlerList() {
         return handlers;
     }
 
-    public Clan getClan() {
-        return clan;
+    public User getUser() {
+        return user;
     }
 
     @Override

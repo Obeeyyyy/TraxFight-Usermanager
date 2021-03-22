@@ -1,4 +1,4 @@
-package de.obey.traxfight.usermanager.events;
+package de.obey.traxfight.backend.events;
 
 /*
 
@@ -8,7 +8,7 @@ package de.obey.traxfight.usermanager.events;
 
 */
 
-import de.obey.traxfight.usermanager.Clan;
+import de.obey.traxfight.backend.Clan;
 import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 
